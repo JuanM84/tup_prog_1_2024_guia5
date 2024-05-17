@@ -13,6 +13,18 @@ namespace Ejercicio3
             int cant = 0, numL, nota, libMenor=0, libMayor=0, notaMenor = 0, notaMayor = 0;
             string nombre, nombreMenor="", nombreMayor="";
 
+            void esMenor(string nom, int lib, int n)
+            {
+                nombreMenor = nom;
+                libMenor = lib;
+                notaMenor = n;
+            }
+            void esMayor(string nom, int lib, int n)
+            {
+                nombreMayor = nom;
+                libMayor = lib;
+                notaMayor = n;
+            }
 
             Console.WriteLine("Ingrese la cantidad de alumnos inscriptos:");
             cant = Convert.ToInt32(Console.ReadLine());
@@ -28,27 +40,19 @@ namespace Ejercicio3
 
                 if (i == 1)
                 {
-                    nombreMenor = nombre;
-                    libMenor = numL;
-                    notaMenor = nota;
-                    nombreMayor = nombre;
-                    libMayor = numL;
-                    notaMayor = nota;
+                    esMenor(nombre, numL, nota);
+                    esMayor(nombre, numL, nota);
 
                 }
                 else
                 {
                     if(nota < notaMenor)
                     {
-                        nombreMenor = nombre;
-                        libMenor = numL;
-                        notaMenor = nota;
+                        esMenor(nombre, numL, nota);
                     }
                     if(nota > notaMayor)
                     {
-                        nombreMayor = nombre;
-                        libMayor = numL;
-                        notaMayor = nota;
+                        esMayor(nombre, numL, nota);
                     }
                 }
             }
